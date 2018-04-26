@@ -1,7 +1,5 @@
 import telebot
 from telebot import types
-import requests
-import json
 
 TOKEN = '570763381:AAGiEjD2LBj_i8fBLPjf2qDVfaXMZDm1T5o'
 bot = telebot.TeleBot(TOKEN)
@@ -40,6 +38,5 @@ def bbb(m):
 def help(m):
    bot.send_message(m.chat.id,
    'Нужна помощь? Обращайся на почту: btcdepositbot@gmail.com')
-
 
 bot.polling()
