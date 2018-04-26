@@ -36,7 +36,6 @@ def bbb(m):
 
 @bot.message_handler(commands=['help'])
 def help(m):
-   bot.send_message(m.chat.id,
-   'Нужна помощь? Обращайся на почту: btcdepositbot@gmail.com')
+   bot.send_message(m.chat.id,'Нужна помощь? Обращайся на почту: btcdepositbot@gmail.com')
 
 bot.polling()
