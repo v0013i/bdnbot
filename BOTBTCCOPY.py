@@ -5,7 +5,6 @@ import json
 
 TOKEN = '570763381:AAGiEjD2LBj_i8fBLPjf2qDVfaXMZDm1T5o'
 bot = telebot.TeleBot(TOKEN)
-TRACK_URL = 'https://api.botan.io/f0efb83f-6623-4d6f-bc87-139daa2f0db6'
 
 @bot.message_handler(commands=['start'])
 def start(m):
@@ -42,19 +41,5 @@ def help(m):
    bot.send_message(m.chat.id,
    'Нужна помощь? Обращайся на почту: btcdepositbot@gmail.com')
 
-def track(token, uid, message, name='Message'):
-    try:
-        r = requests.post(
-            TRACK_URL,
-            params={"token": token, "uid": uid, "name": name},
-            data=json.dumps(message),
-            headers={'Content-type': 'application/json'},
-        )
-        return r.json()
-    except requests.exceptions.Timeout:
-        return False
-    except (requests.exceptions.RequestException, ValueError) as e:
-        print(e)
-        return False
 
 bot.polling()
